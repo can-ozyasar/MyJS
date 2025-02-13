@@ -1,0 +1,1 @@
+console.log("js kodu index.html'ye eklendi")
