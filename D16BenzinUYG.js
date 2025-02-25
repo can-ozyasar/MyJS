@@ -19,41 +19,46 @@
  */
 
 
- let bakiye=200;
- var yeterli=false;
+ let bakiye=300;
+ var yeterli=true
 
 
  function benzinIstasyonu(toplamTutar){
     if(toplamTutar>bakiye){
         alert("Yetersiz bakiye")
+        yeterli=false
+
     }
     else{
-        yeterli=true
         bakiye=bakiye-toplamTutar
     }
 }
  
 
- do {
-    
- let dizel=47
- let benzin=49 
- let lpg=25
+
+ let dizel=47,lpg=25,benzin=49,toplamTutar=0,litre=0
+ 
  const yeniSatır="\r\n"
- let toplamTutar=0
  let secilenYakit=""
 
- let yakitTipi=Number(prompt("Yakıt tipini seçiniz "+yeniSatır+"1-BENZİN"+yeniSatır+"2-DİZEL"+yeniSatır+"3-LPG"+yeniSatır+"4 çıkış"))
-    if(yakitTipi==4){
-    yeterli=false;
-    break;
-    }
-    
-          
+ while(yeterli){
 
-    let litre=Number(prompt("Kaç litre alacaksınız"))
+ let yakitTipi=Number(prompt("Yakıt tipini seçiniz "+yeniSatır+"1-BENZİN"+yeniSatır+"2-DİZEL"+yeniSatır+"3-LPG"+yeniSatır+"4 çıkış"))
+    
+ if(yakitTipi==4){
+    alert("Çıkış yapılıyor")
+    
+}
+ 
+
+else{
+
+
+if(yakitTipi==1 || yakitTipi==2 ||  yakitTipi==3)
+    litre=Number(prompt("Kaç litre alacaksınız"))
    
     
+
     if(yakitTipi==1){
         secilenYakit="BENZİN"
         toplamTutar=benzin*litre 
@@ -77,10 +82,13 @@
     else{
         alert("Geçersiz yakıt tipi")
     }
-
     
-} while (yeterli);
+}
+alert("Seçilen yakıt tipi : "+secilenYakit+yeniSatır+
+    "Alınan litre miktarı : "+litre+yeniSatır+
+"Ödenecek tutar : "+toplamTutar+yeniSatır+
+"kalan bakiye : "+bakiye+yeniSatır)
 
-    document.write("Seçilen yakıt tipi : "+secilenYakit+yeniSatır)
-    document.write("Alınan litre miktarı : "+litre+yeniSatır)
-    document.write("Ödenecek tutar : "+toplamTutar+yeniSatır)
+
+ }
+   
