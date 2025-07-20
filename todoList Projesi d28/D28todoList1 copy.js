@@ -4,8 +4,8 @@
 const form=document.querySelector("#todoAddForm");
 const addInput=document.querySelector("#todoName");
 const todoList=document.querySelector(".list-group");
-const firstCardBody=document.querySelector(".list-group")[0];
-const secondCardBody=document.querySelectorAll(".list-group")[1];
+const firstCardBody=document.querySelectorAll(".card-body")[0];
+const secondCardBody=document.querySelectorAll(".card-body")[1];
 const clearButton=document.querySelector("#clearButton");
 
 
@@ -18,23 +18,42 @@ let todos=[];
 
 
 runEvents();
+
 function runEvents() {
     form.addEventListener("submit",addTodo);
+    document.addEventListener("DOMContentLoaded",pageLoaded); // sayfa yüklendiğinde storage kontrol ediliyor ekelem yapacağız
    
 }
+function pageLoaded() {
+    checkTodosFromStorage(); // storage kontrol ediliyor
+    todos.forEach(function(todo) { // her bir todo için
+        addTodoToUI(todo); // todo yu arayüze ekliyoruz
+        //? console.log(todo); // konsola yazdırıyoruz kontrol etmek amacıyla
+    });
+    checkTodosFromStorage(); // storage kontrol ediliyor
 
+
+
+}
 function addTodo(e) {
 
     const inputText=addInput.value.trim();// input değerini alıyoruz ve boşlukları siliyoruz
     if (inputText===""||inputText==null) { // eğer input değeri boşsa
         alert("Lütfen bir todo girin"); // uyarı veriyoruz
+
+
+        //şimdi uyarı ile alert vereceğiz 
+            showAlert("warning","todo eklenmedi."); // uyarı veriyoruz
+
+
     } else {
         // eğer input değeri boş değilse
 
     //arayüze ekleme işlemi yapıyoruz
     addTodoToUI(inputText); // fonksiyonu çağırıyoruz
     addTodoToStorage(inputText); // local storage a ekliyoruz
-    }
+    showAlert("success","todo eklendi."); // uyarı veriyoruz
+}
 
 
 
@@ -62,7 +81,7 @@ function addTodoToUI(newTodo) {
 
 }
 function addTodoToStorage(newTodo) {
-
+document.addEventListener("DOMContentLoaded",pageLoaded); // sayfa yüklendiğinde storage kontrol ediliyor ekelem yapacağız 
 //içi boşsa storage 0 dan başlat 
 //eğer storage doluysa yeni todo ekle
 
@@ -84,4 +103,43 @@ function checkTodosFromStorage(){
     }
     
 
+}
+
+
+
+
+//  todomuza uyarı ekelme işlemleri ders 81 
+
+function showAlert(type,message){
+    
+//  <div class="alert alert-warning" role="alert">
+//                      This is a success alert—check it out!
+//                     </div>
+
+
+const div=document.createElement("div"); // yeni bir div elementi oluşturuyoruz
+div.className=`alert alert-${type}`; //`litrel template class ekliyoruz 
+div.textContent=message; // divin içeriğini ayarlıyoruz
+firstCardBody.appendChild(div); // divi ilk card body ye ekliyoruz
+
+
+
+setTimeout(function() {
+    div.remove(); // divi siliyoruz{
+    
+}, 2000); // 2 saniye sonra siliniyor uyarı ekranımız
+console.log("alert silindi"); // konsola yazdırıyoruz
+
+}
+
+
+
+// ders 82 storage den alınan  bilgileri yazdırma işlemi
+
+function pageLoaded() {
+    checkTodosFromStorage(); // storage kontrol ediliyor
+    todos.forEach(function(todo) { // her bir todo için
+        addTodoToUI(todo); // todo yu arayüze ekliyoruz
+    });
+    
 }
