@@ -2,9 +2,12 @@
 // spread operatörü üç nokta (...) ile gösterilir ve dilimlemek anlamına gelir.
 // es6 ile beraber gelen bir özelliklerdendir.
 
-function add(a, b, c, d) {
+const add=(a, b, c, d)=> {
     console.log(a + b + c + d) // dört parametreli bir fonksiyon
 }
+
+
+//! paramrametre olarak geçirmek istediğimizde
 
 add(1, 2, 3, 4); // normalde dört parametreli bir fonksiyon çağırıyoruz
 
@@ -13,6 +16,9 @@ let numbers = [1, 2, 3, 4]; // bir dizi
 add(...numbers); // spread operatörü ile diziyi parametre olarak gönderiyoruz7
 // ...numbers şu mantıkla çalışır add(numbers[0], numbers[1], numbers[2], numbers[3]); // dizinin elemanlarını tek tek parametre olarak gönderir
 
+
+
+//! dizileri birleştirmek için de kullanabiliriz
 
 const diller1 = ["JavaScript", "Python",]; // bir dizi tanımlıyoruz
 const diller2 = ["Java", "C++"]; // başka bir dizi tanımlıyoruz
@@ -29,6 +35,7 @@ console.log(tumDiller); // konsola yazdırıyoruz
 // şimdi spread operatörü ile diziden elemanları alalım
 
 
+//! diziyi bolmek için de kullanabiliriz
 
 const numbers2 = [1, 2, 3, 4, 5, 6, 7, 8, 9]; // bir dizi tanımlıyoruz
 let [a, b, ...kalanSayilar] = numbers2; // destructing kullanarak diziden elemanları alıyoruz ilk iki elemanı ve kalan sayıları da kalanSayilar dizisine atıyoruz
@@ -38,7 +45,7 @@ console.log(a, b, kalanSayilar); // konsola yazdırıyoruz
 
 
 
-//
+//!Dizi kopyalama işlemi
 
 const array1=["enes", "can", "ahmet", "mehmet"]; // bir dizi tanımlıyoruz
 
