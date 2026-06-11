@@ -2,11 +2,24 @@
 
 JavaScript öğrenme notları, örnekleri ve küçük web uygulamalarını içeren çalışma reposu.
 
-## Öne Çıkanlar
+## Bu Repo Ne İçin Var?
+JavaScript öğrenme sürecindeki örnekleri, küçük projeleri ve notları tek yerde toplamak için oluşturuldu.
+
+Bu README'nin amacı; repoya ilk kez gelen birinin projenin neden açıldığını, içinde ne bulunduğunu ve nereden başlaması gerektiğini hızlıca anlamasını sağlamaktır.
+
+## İçerik ve Kapsam
+Bu repoda öne çıkan içerikler şunlardır:
 - Konu bazlı JavaScript pratikleri
 - HTML örnek sayfaları
 - Temel frontend geliştirme alıştırmaları
-- Kullanılan ana teknolojiler: JavaScript, HTML
+- Tarayıcıda incelenebilen HTML arayüz dosyaları
+
+## Kimler İçin Faydalı?
+Proje fikrini, dosya yapısını ve geliştirme yönünü hızlıca anlamak isteyenler için hazırlanmıştır.
+
+## Kullanılan Teknolojiler
+- JavaScript
+- HTML
 
 ## Önemli Dosyalar
 - `Migros ornek projesi/index.html`
